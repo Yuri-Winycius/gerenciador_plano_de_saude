@@ -2,13 +2,14 @@ package com.winy.gerenciador_plano_de_saude.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 public class Documento extends BaseEntity{
 
     @Id
@@ -18,7 +19,7 @@ public class Documento extends BaseEntity{
     @Column(name = "tipo_documento")
     private String tipoDocumento;
 
-    @Column(name = "descrição")
+    @Column(name = "descricao")
     private String descricao;
 
     @ManyToOne

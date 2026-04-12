@@ -2,6 +2,7 @@ package com.winy.gerenciador_plano_de_saude.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 public class Beneficiario extends BaseEntity{
 
     @Id
@@ -28,7 +29,6 @@ public class Beneficiario extends BaseEntity{
     @Column(name = "data_de_nascimento")
     private LocalDate dataNascimento;
 
-    @Column(name = "documentos")
     @OneToMany(mappedBy = "beneficiario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Documento> documentos = new ArrayList<>();
 
